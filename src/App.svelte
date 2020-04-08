@@ -1,14 +1,17 @@
 <script>
   export let name;
-  let screen = "0";
+  let screen = " ";
   const append = value => {
     screen = screen + value;
   };
-  const result = value => {
+  const evaluate = value => {
     let res = eval(value.toString());
     screen = res;
   };
-  const add = values => {};
+
+  const clear = () => {
+    screen = " ";
+  };
 </script>
 
 <style>
@@ -94,9 +97,12 @@
         <button class="btn btn-lg btn-dark" on:click={() => append('/')}>
           /
         </button>
-        <button class="btn btn-lg btn-dark" on:click={() => result(screen)}>
+        <button class="btn btn-lg btn-dark" on:click={() => evaluate(screen)}>
           =
         </button>
+      </div>
+      <div class="grid-3">
+        <button class="btn btn-lg btn-dark" on:click={() => clear()}>CE</button>
       </div>
 
     </div>
